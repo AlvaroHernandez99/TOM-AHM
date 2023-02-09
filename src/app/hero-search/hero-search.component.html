@@ -1,0 +1,17 @@
+<div>
+  <label for="inputSearch" >Buscar por nombre </label>
+    <input
+      type="text"
+      id="inputSearch"
+      #inputSearch
+      (input)="search(inputSearch.value)"
+    ><!-- Trabaja directamente con el observable, se actualiza solo. NO hace falta desubscribirlo-->
+  <ul>
+
+    <li *ngFor="let hero of heroesFound$ | async">
+      <a routerLink="/detail/{{ hero.id }}">
+        {{ hero.name }}
+      </a>
+    </li>
+  </ul>
+</div>
