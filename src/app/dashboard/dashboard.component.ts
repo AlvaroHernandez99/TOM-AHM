@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Character, Result} from '../hero';
+import {Character, Result, Thumbnail} from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { HeroService } from '../hero.service';
 export class DashboardComponent implements OnInit {
 
   public heroes?: Result[];
+
+  public urlPhoto: Thumbnail[];
 
   constructor(
     private heroService: HeroService

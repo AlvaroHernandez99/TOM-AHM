@@ -21,7 +21,6 @@ export class HeroService {
   // Hace una llamkada a la apu para devolver todos lo heroes
   // Como es una iperacuon asincrona, devuelve un observable
   public getHeroes(): Observable<Result[]> {
-    //console.log(this.http.get<Character>(this.fullLink));
     return this.http.get<Character>(this.fullLink).pipe(
       catchError(e => {
         console.error(e);
