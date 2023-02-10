@@ -1,8 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Location } from "@angular/common";
+import {Character, Result} from "../hero";
 
 @Component({
   selector: 'app-hero-detail',
@@ -11,7 +11,7 @@ import { Location } from "@angular/common";
 })
 export class HeroDetailComponent implements OnInit, OnDestroy{
   //funcion(hero: Hero)
-  @Input() heroeSeleccionado?: Hero;
+  @Input() heroeSeleccionado?: Result;
 
   constructor (
     private route: ActivatedRoute,
@@ -24,8 +24,8 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
     // En este caso, como el id es de tipo string, tenemos que cambiarle la variable, por eso se le pone el +
     const id: number = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHeroById(id).subscribe(
-      hero => {
-        this.heroeSeleccionado = hero;
+      (heroes)  => {
+        this.heroeSeleccionado = heroes[0];
       });
   }
   goBack(): void{
@@ -35,10 +35,10 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     //this.subscription.unsubscription;
   }
-   save() {
+   /*save() {
     this.heroService.updateHero(this.heroeSeleccionado).subscribe();
      this.location.back();
-   }
+   }*/
 
 }
 
