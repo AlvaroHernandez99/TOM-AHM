@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero} from "../hero";
 import {HeroService} from "../hero.service";
 import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 import {debounce, debounceTime, distinctUntilChanged, Observable, of, Subject, switchMap} from "rxjs";
+import {Character} from "../hero";
 
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
   styleUrls: ['./hero-search.component.scss']
 })
-export class HeroSearchComponent implements OnInit{
-  public heroesFound$: Observable<Hero[]> = of([]);
+export class HeroSearchComponent /*implements OnInit*/{
+  public heroesFound$: Observable<Character[]> = of([]);
 
   /* Tipo subject es una clase A LA QUE TE PUEDES SUBSCRIBIR Y HACE LA FUNCIÓN DE OBSERVABLE */
   /* Un observable que elegimos nosotros cuando mandarlo */
@@ -22,16 +22,16 @@ export class HeroSearchComponent implements OnInit{
 
 
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.heroesFound$ = this.searchTerm.pipe(
-      /*Completa el observale anterior y lo transforma a tipo HERO*/
+      /!*Completa el observale anterior y lo transforma a tipo HERO*!/
       debounceTime(300),
       distinctUntilChanged(),
       switchMap(term => {
         return this.heroService.searchHeroes(term);
       })
     );
-  }
+  }*/
 
 
   public search(value: string) {

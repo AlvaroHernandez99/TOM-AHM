@@ -3,11 +3,11 @@
         <h1>Detalles de {{ heroeSeleccionado.name | uppercase }}</h1>
 
         <div><span>id: </span> {{ heroeSeleccionado.id }}</div>
-        <div><span>name: </span><input [(ngModel)]="heroeSeleccionado.name" type="text"></div>
-        <div><span>superPower: </span> {{ heroeSeleccionado.superPower }} </div>
-        <div><span>hasCape: </span> {{ heroeSeleccionado.hasCape }} </div>
-        <div><span>height: </span> {{ heroeSeleccionado.height }} </div>
+        <div><span>name: </span> {{  heroeSeleccionado.name }} </div>
+        <div><span>superPower: </span> {{ heroeSeleccionado.comics }} </div>
+        <div><span>hasCape: </span> {{ heroeSeleccionado.description }} </div>
+        <div><span>height: </span> {{ heroeSeleccionado.modified }} </div>
     </div>
 
-<button (click)="save()">Wuardar</button>
+<!--<button (click)="save()">Wuardar</button>-->
 <button (click)="goBack()">Patrás</button>

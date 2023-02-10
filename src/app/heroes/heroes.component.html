@@ -15,15 +15,14 @@
     <div><span>height: </span> {{ heroeSeleccionado.height }} </div>
 </div> -->
 
-
-
-<h2></h2>
+<h2>{{ textoHeroe }}</h2>
 <ul>
-    <li 
+    <li
         *ngFor="let heroeDeListaHeroe of heroes"
     >
-        <a routerLink="/detail/{{ heroeDeListaHeroe.id}}"> 
+        <a routerLink="/detail/{{ heroeDeListaHeroe.id}}">
             {{ heroeDeListaHeroe.id }}: {{ heroeDeListaHeroe.name }}
-        </a>    
+        </a>
     </li>
-</ul>   
+</ul>
+
