@@ -11,14 +11,12 @@ export class DashboardComponent implements OnInit {
 
   public heroes?: Result[];
 
-  public urlPhoto: Thumbnail[];
-
   constructor(
     private heroService: HeroService
   ) {}
 
   ngOnInit(): void {
-    this.heroService.getHeroes().subscribe(heroes => {
+    this.heroService.getHeroesRandom().subscribe(heroes => {
       this.heroes = heroes;
     })
   }

@@ -10,7 +10,6 @@ import {Character, Result} from "../hero";
   styleUrls: ['./hero-detail.component.scss']
 })
 export class HeroDetailComponent implements OnInit, OnDestroy{
-  //funcion(hero: Hero)
   @Input() heroeSeleccionado?: Result;
 
   constructor (

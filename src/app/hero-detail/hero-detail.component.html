@@ -1,7 +1,7 @@
 <!-- <div *ngIf="hero !null"> -->
     <div *ngIf="heroeSeleccionado">
         <h1>Detalles de {{ heroeSeleccionado.name | uppercase }}</h1>
-
+        <img width="150px" src="{{ heroeSeleccionado.thumbnail.path }}.{{ heroeSeleccionado.thumbnail.extension }}" alt="{{ heroeSeleccionado.name }}">
         <div><span>id: </span> {{ heroeSeleccionado.id }}</div>
         <div><span>name: </span> {{  heroeSeleccionado.name }} </div>
         <div><span>comics: </span> {{ heroeSeleccionado.comics.returned }} </div>
