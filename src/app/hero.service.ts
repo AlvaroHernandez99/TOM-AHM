@@ -47,7 +47,7 @@ export class HeroService {
   }
 
   public getHeroesRandom(): Observable<Result[]> {
-    return this.http.get<Character>(this.url + this.ts + '&offset='+ this.mathRamdom + this.apiKey + this.hash).pipe(
+    return this.http.get<Character>(this.url + this.ts + '&offset=' + this.mathRamdom + this.apiKey + this.hash).pipe(
       catchError(e => {
         console.error(e);
         return [];// le pasamos un array vacío para que no devuelva nada
@@ -55,15 +55,28 @@ export class HeroService {
     ).pipe(map((result: Character)=>result.data.results))
   }
 
-
-  /*public updateHero(hero: Hero): Observable<void> {
-    return this.http.put<void>(`${this.heroesUrl}/${hero.id}`, hero);
-  }
-
-  public searchHeroes(text: string): Observable<Hero[]> {
+  public searchHeroes(text: string): Observable<Result[]> {
     if (!text.trim()) {
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${text}`);
-  }*/
+    return this.http.get<Character>(this.url + this.ts + "&nameStartsWith=" + `${text}` + this.apiKey + this.hash).pipe(
+      catchError(e => {
+        console.error(e);
+        return [];// le pasamos un array vacío para que no devuelva nada
+      })
+    ).pipe(map((result: Character)=>result.data.results))
+  }
 }
+
+
+
+
+/*
+search
+return this.http.get<Result[]>(this.url + this.ts + "&nameStartsWith=" + `${text}` + this.apiKey + this.hash)
+*/
+
+
+/*public updateHero(hero: Hero): Observable<void> {
+   return this.http.put<void>(`${this.heroesUrl}/${hero.id}`, hero);
+ }*/
