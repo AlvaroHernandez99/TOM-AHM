@@ -1,28 +1,23 @@
-<!-- <div *ngIf="hero !null"> -->
-<!-- <app-hero-detail
-    [heroeSeleccionado]="heroeSeleccionado"
-></app-hero-detail> -->
-
-
-
-<!--     <div *ngIf="heroeSeleccionado">
-    <h1>Detalles de {{ heroeSeleccionado.name | uppercase }}</h1>
-
-    <div><span>id: </span> {{ heroeSeleccionado.id }}</div>
-    <div><span>name: </span><input [(ngModel)]="heroeSeleccionado.name" type="text"></div>
-    <div><span>superPower: </span> {{ heroeSeleccionado.superPower }} </div>
-    <div><span>hasCape: </span> {{ heroeSeleccionado.hasCape }} </div>
-    <div><span>height: </span> {{ heroeSeleccionado.height }} </div>
-</div> -->
 
 <h2>{{ textoHeroe }}</h2>
-<ul>
-    <li
-        *ngFor="let heroeDeListaHeroe of heroes"
-    >
-        <a routerLink="/detail/{{ heroeDeListaHeroe.id}}">
-            {{ heroeDeListaHeroe.id }}: {{ heroeDeListaHeroe.name }}
-        </a>
-    </li>
-</ul>
+<div>
+  <ul>
+      <li
+          *ngFor="let heroeDeListaHeroe of heroes "
+      >
+          <a routerLink="/detail/{{ heroeDeListaHeroe.id}}">
+              {{ heroeDeListaHeroe.id }}: {{ heroeDeListaHeroe.name }}
+          </a>
+      </li>
+  </ul>
+  <div>
+    <button (click)="less()">Back</button>
+    - <button (click)="more2()">1</button>
+    - {{ this.offsetMore }} / {{ this.limitMore }} -
+    <button (click)="last()">1562</button> -
+    <button (click)="more()">Forward</button>
+  </div>
+</div>
+
+
 

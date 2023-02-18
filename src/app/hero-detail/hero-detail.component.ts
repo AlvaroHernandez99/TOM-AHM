@@ -1,8 +1,13 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../hero.service';
+
 import { Location } from "@angular/common";
-import {Character, Result} from "../hero";
+import { Result} from "../../interfaces/result";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {MessageService} from "../message.service";
+import {Hero} from "../../interfaces/new-hero";
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -11,12 +16,19 @@ import {Character, Result} from "../hero";
 })
 export class HeroDetailComponent implements OnInit, OnDestroy{
   @Input() heroeSeleccionado?: Result;
+  private heroesUrl = 'api/heroes';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  hero: Hero | undefined;
 
   constructor (
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
-  ) {}
+    private location: Location,
+    ) { }
+
 
   ngOnInit(): void {
     // El + es para parsear la variable (para cambiarle el tipo)
@@ -27,6 +39,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
         this.heroeSeleccionado = heroes[0];
       });
   }
+
   goBack(): void{
     this.location.back();
   }
@@ -38,6 +51,12 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
     this.heroService.updateHero(this.heroeSeleccionado).subscribe();
      this.location.back();
    }*/
+
+  /*-----------------------------------------*/
+
+
+
+
 
 }
 

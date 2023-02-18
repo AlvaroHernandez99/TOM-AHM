@@ -1,8 +1,8 @@
 
 
+
 <br>
-<br>
-<br>
+<h1>Create your own character</h1>
 <br>
 <form [formGroup]="heroForm">
   <label for="name">Name: </label>
@@ -11,22 +11,63 @@
     <!--Es una validación que se va a encargar que si el campo no es válido muestre este div-->
     <small *ngIf="heroForm.get('name').invalid && heroForm.get('name').touched">
       <!-- Con el touched, si ha tocado el input saldrá el mensaje de error -->
-      El campo name es obligatorio
+      This field  is required
     </small>
   </div>
 
-  <label for="superpower">Superpower: </label>
-  <input formControlName="superpower" type="text" id="superpower"><br>
+
+  <label for="height">Height: </label>
+  <input formControlName="height" type="number" id="height"><br>
+
+  <label for="description">Description: </label>
+  <textarea formControlName="description" type="text" id="description"></textarea><br>
+  <div>
+    <small *ngIf="heroForm.get('description').invalid && heroForm.get('description').touched">
+      This field  is required
+    </small>
+  </div>
 
   <label for="hasCape">Has cape: </label>
   <input formControlName="hasCape" type="checkbox" id="hasCape"><br>
 
-  <label for="height">Height: </label>
-  <input formControlName="height" type="text" id="height"><br>
 
   <button (click)="save()">Save</button>
-  <button (click)="load()">Load</button>
+  <!--<button (click)=" addNewHero(heroForm)">SAVE</button>-->
+  <button (click)="load()">Show</button>
   <button (click)="reset()">Reset</button>
 
-
 </form>
+
+
+
+<div *ngIf="notVisible">
+  <h1>Details of {{ this.heroForm.value.name }}</h1>
+  <p>Nombre: {{ this.heroForm.value.name }}</p>
+  <p>Superpower: {{ this.heroForm.value.description }}</p>
+  <p>Has cape? {{ this.heroForm.value.hasCape }}</p>
+  <p>Height: {{ this.heroForm.value.height }}</p>
+</div>
+
+
+<p>----------------------------------------------------------------------------------------------------------------</p>
+<!--------------------------------------------------------->
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
+
+<!--BORRAR PARTE DE LISTA-->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button type="button" class="delete" title="delete hero"
+            (click)="delete(hero)">x</button>
+  </li>
+</ul>

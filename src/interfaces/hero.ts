@@ -36,7 +36,7 @@
   extension: Extension;
 }*/
 
-export enum Extension {
+/*export enum Extension {
   GIF = "gif",
   Jpg = "jpg",
-}
+}*/

@@ -11,6 +11,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 
+
+import {CommonModule} from "@angular/common";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,17 +22,20 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     HeroDetailComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    HttpClientModule,
 
+  ],
+  exports: [],
+  providers: [CommonModule],
+  bootstrap: [AppComponent]
 })
+
 export class AppModule { }

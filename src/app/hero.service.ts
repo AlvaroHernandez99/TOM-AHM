@@ -1,7 +1,9 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {Character, Result} from './hero';
-import {catchError, map, Observable, of, pipe} from 'rxjs';
+import { Result } from '../interfaces/result';
+import {catchError, map, Observable, of, pipe, Subject} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
+import {Character} from "../interfaces/character";
+import {Hero} from "../interfaces/new-hero";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,8 @@ export class HeroService {
 
   private mathRamdom:number = Math.floor(Math.random() * 1550);
 
-
+  public limit:number = 20;
+  public offset:number = 1; //1561
 
   constructor(
     private http: HttpClient
@@ -66,17 +69,68 @@ export class HeroService {
       })
     ).pipe(map((result: Character)=>result.data.results))
   }
+
+  public getHeroesPaginateMore(): Observable<Result[]> {
+    if (this.offset >= 1540) {
+      this.offset = 1522;
+    }
+    this.offset = this.offset + 20;
+    return this.http.get<Character>(this.url + this.ts + '&' + 'limit=' + this.limit + '&' + 'offset=' + this.offset + this.apiKey + this.hash)
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return [];// le pasamos un array vacío para que no devuelva nada
+        })
+      )
+      .pipe(map((result: Character)=>result.data.results))
+  }
+
+  public getHeroesPaginateLess(): Observable<Result[]> {
+    this.offset = this.offset - 20;
+    return this.http.get<Character>(this.url + this.ts + '&' + 'limit=' + this.limit + '&' + 'offset=' + this.offset + this.apiKey + this.hash)
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return [];// le pasamos un array vacío para que no devuelva nada
+        })
+      )
+      .pipe(map((result: Character)=>result.data.results))
+  }
+
+  public getHeroeOne(): Observable<Result[]> {
+    this.offset = 0;
+    return this.http.get<Character>(this.url + this.ts + '&' + 'offset=' + this.offset + this.apiKey + this.hash)
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return [];// le pasamos un array vacío para que no devuelva nada
+        })
+      )
+      .pipe(map((result: Character)=>result.data.results))
+  }
+
+  public getHeroeLast(): Observable<Result[]> {
+    this.offset = 1542;
+    return this.http.get<Character>(this.url + this.ts + '&' + 'offset=' + this.offset + this.apiKey + this.hash)
+      .pipe(
+        catchError(e => {
+          console.error(e);
+          return [];// le pasamos un array vacío para que no devuelva nada
+        })
+      )
+      .pipe(map((result: Character)=>result.data.results))
+  }
+
+
+
+
+
+
 }
 
 
 
 
-/*
-search
-return this.http.get<Result[]>(this.url + this.ts + "&nameStartsWith=" + `${text}` + this.apiKey + this.hash)
-*/
 
 
-/*public updateHero(hero: Hero): Observable<void> {
-   return this.http.put<void>(`${this.heroesUrl}/${hero.id}`, hero);
- }*/
+
