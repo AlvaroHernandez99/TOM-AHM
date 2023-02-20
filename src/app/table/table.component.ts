@@ -33,15 +33,5 @@ export class TableComponent  implements OnInit{
       })
     })
   }
-
-
-
-
-
-
-
-/*  this.createHeroServiceService.deleteHero(id).subscribe((heroes) => {
-  console.log(heroes);
-  return this.createdHeroes = heroes[0];
-})*/
+  
 }

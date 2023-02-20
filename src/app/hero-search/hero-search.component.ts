@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HeroService} from "../hero.service";
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 import {debounce, debounceTime, distinctUntilChanged, Observable, of, Subject, switchMap} from "rxjs";
 import {Result} from "../../interfaces/result";
-import {Hero} from "../../interfaces/hero";
 import {CreateHeroServiceService} from "../create-hero-service.service";
 import {CreateHero} from "../../interfaces/createHero";
 
@@ -21,13 +19,9 @@ export class HeroSearchComponent implements OnInit{
   /* Un observable que elegimos nosotros cuando mandarlo */
   /* FUente de valores observables y pusear valores como si fuera un array para qe le llegue a los subscritos*/
   public searchTerm: Subject<string> = new Subject();
-  heroes$!: Observable<Hero[]>;
-  public createdHeroes: CreateHero[] = [];
   private searchTerms: Subject<string> = new Subject();
   public values: string = "";
   public event: string = "";
-
-
 
   constructor(
     private heroService: HeroService,
@@ -62,42 +56,8 @@ export class HeroSearchComponent implements OnInit{
     this.searchTerm.next(value);
   }
 
-
-
-
   public onKey(value: string) {
     this.searchTerms.next(value);
-    /*
-    this.values += (event.target as HTMLInputElement).value;
-    console.log(this.values);  //Lo que meto en el input
-    let body: string = this.values ;
-    this.createHeroServiceService.getHeroesSearch(value).subscribe( (heroes: CreateHero[]) => {
-      const names = heroes.map(hero => hero.name);
-      console.log(names);
-      return names;
-       //nombres en un array
-    })
-    */
   }
-
-
-
-
-
-
-
-
-
-//  Tengo los valores de los inputs recogidos,
-//  También los nombres en un array
-  // LO QUE RECOGE EL INPUT, COMO LO MANDO, EN EL PSOTMAN SI NO LO MANDO NO VA XD,
-  //HGACER QUE HAGA LA COMPARACION TO-DO EL RATO...
-
-
-
-
-
-
-
-
+  
 }

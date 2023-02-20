@@ -9,7 +9,6 @@ import {Hero} from "../interfaces/hero";
   providedIn: 'root'
 })
 export class HeroService {
-  //private heroesUrl: string = 'api/heroes';
   private fullLink:string = 'https://gateway.marvel.com/v1/public/characters?ts=takaro&apikey=39449468682c0aa00d295ebc89422f6b&hash=7bb4c84838e9de0644989f19f8d4e506';
   private fullLinkLimit:string = 'https://gateway.marvel.com:443/v1/public/characters?limit=20&apikey=39449468682c0aa00d295ebc89422f6b';
   private url:string = 'https://gateway.marvel.com/v1/public/characters';
@@ -120,12 +119,7 @@ export class HeroService {
       )
       .pipe(map((result: Character)=>result.data.results))
   }
-
-
-
-
-
-
+  
 }
 
 

@@ -1,30 +1,4 @@
 
-<!--<div>
-  <ul>
-      <li *ngFor="let heroeDeListaHeroe of heroes ">
-
-          <a routerLink="/detail/{{ heroeDeListaHeroe.id}}">
-            {{ heroeDeListaHeroe.id }}: {{ heroeDeListaHeroe.name }}
-            <img width="150px" src="{{ heroeDeListaHeroe.thumbnail.path }}.{{ heroeDeListaHeroe.thumbnail.extension }}"
-                 alt="{{ heroeDeListaHeroe.name }}">
-          </a>
-
-      </li>
-  </ul>
-</div>
-
-<div>
-  <button (click)="less()">Back</button>
-  - <button (click)="more2()">1</button>
-  - {{ this.offsetMore }} / {{ this.limitMore }} -
-  <button (click)="last()">1562</button> -
-  <button (click)="more()">Forward</button>
-</div>-->
-
-
-
-
-
 <section>
   <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
     <ul class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -45,34 +19,12 @@
   </div>
 </section>
 
-
-
-<!--<div>
-  <button (click)="less()">Back</button>
-  - <button (click)="more2()">1</button>
-  - {{ this.offsetMore }} / {{ this.limitMore }} -
-  <button (click)="last()">1562</button> -
-  <button (click)="more()">Forward</button>
-</div>-->
-
-
 <div class="rounded-lg border border-gray-100 bg-gray-100 p-1">
-
-  <button (click)="less()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
-    Back
+  <button (click)="less()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">Back</button>
+  <button (click)="more2()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"> 1 </button>
+  <button class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
+    - {{ this.offsetMore }} / {{ this.limitMore }} -
   </button>
-
-  <button (click)="more2()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
-    1
-  </button>
-  <button class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">  - {{ this.offsetMore }} / {{ this.limitMore }} - </button>
-
-  <button (click)="last()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
-    1562
-  </button>
-
-  <button (click)="more()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative">
-    Forward
-  </button>
-
+  <button (click)="last()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"> 1562 </button>
+  <button (click)="more()" class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"> Forward </button>
 </div>

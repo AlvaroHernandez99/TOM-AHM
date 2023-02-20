@@ -1,20 +1,3 @@
-<!--
-<label for="inputSearch" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm
-  focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
-  <input  type="text" id="inputSearch" placeholder="Searh Heroes" #inputSearch (input)="search(inputSearch.value)"
-    class=" w-full border-none bg-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"/>
-</label>
-
-<div>
-  <ul>
-    <li *ngFor="let hero of heroesFound$ | async">
-      <a class="search" routerLink="/detail/{{ hero.id }}">
-       {{ hero.name }}
-      </a>
-    </li>
-  </ul>
-</div>-->
-
 
 
 <label for="inputSearch" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm
@@ -22,10 +5,6 @@
   <input id="inputSearch" #inputSearch (keyup)="onKey(inputSearch.value)" (input)="search(inputSearch.value)" placeholder="Searh Heroes" type="text"
           class=" w-full border-none bg-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"/>
 </label>
-
-
-
-
 
 
 <div>
@@ -38,11 +17,10 @@
   </ul>
 </div>
 
-
 <div>
   <ul>
     <li *ngFor="let hero of heroesFoundCreated$ | async">
-      <a class="search" routerLink="/detail/{{ hero.id }}">
+      <a class="search" routerLink="/detail/created/{{ hero.id }}">
         {{ hero.name }}
       </a>
     </li>

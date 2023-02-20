@@ -12,9 +12,6 @@ import {CreateHero} from "../../interfaces/createHero";
 })
 export class HeroFormComponent implements OnInit{
   public heroForm = new FormGroup({
-    /*Se le pone el id ya que cuando devuelven los id de la db necesita tener el campo.*/
-    /*también se verá a la hora de crear... Si tiene id modificará, si no, lo creará*/
-    /*LOS VALORES QUE ENTRAN ENTRE LOS PARÉNTESIS SON LOS VALORES QUE ESTARÁN POR DEFECTO*/
     id: new FormControl(),
     name: new FormControl('', [
       Validators.maxLength(16),
@@ -29,7 +26,6 @@ export class HeroFormComponent implements OnInit{
 
   public notVisible: boolean = false;
 
-/*  heroes: Hero[] = [];*/
   public constructor(
     private createHeroServiceService: CreateHeroServiceService
   ) { }

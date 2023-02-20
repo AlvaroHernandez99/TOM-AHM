@@ -7,6 +7,8 @@ import { Result} from "../../interfaces/result";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MessageService} from "../message.service";
 import {Hero} from "../../interfaces/hero";
+import {CreateHeroServiceService} from "../create-hero-service.service";
+import {CreateHero} from "../../interfaces/createHero";
 
 
 @Component({
@@ -16,17 +18,13 @@ import {Hero} from "../../interfaces/hero";
 })
 export class HeroDetailComponent implements OnInit, OnDestroy{
   @Input() heroeSeleccionado?: Result;
-  private heroesUrl = 'api/heroes';
+  @Input() heroeSeleccionadoCreate?: CreateHero;
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-  hero: Hero | undefined;
 
   constructor (
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location,
+    private location: Location
     ) { }
 
 
@@ -40,20 +38,13 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
       });
   }
 
+
   goBack(): void{
     this.location.back();
   }
 
 
-
-
-
-
-
-
-  ngOnDestroy(): void {
-    //this.subscription.unsubscription;
-  }
+  ngOnDestroy(): void { }
 
 }
 

@@ -5,6 +5,7 @@ import {Result} from "../interfaces/result";
 /*import {Character} from "../interfaces/character";*/
 import {CreateHero} from "../interfaces/createHero";
 import {Character} from "../interfaces/character";
+import * as cluster from "cluster";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,7 @@ export class CreateHeroServiceService {
     private http: HttpClient
 
   ) { }
-
-
+  
   public getHeroes(): Observable<CreateHero[]> {
     return this.http.get<CreateHero>(this.url).pipe(
       catchError(e => {
@@ -50,27 +50,25 @@ export class CreateHeroServiceService {
     ).pipe(map((result)=>result))
   }
 
-  /*public getHeroesSearch(text: string): Observable<CreateHero[]> {
-    return this.http.get<CreateHero>(this.url + 'search'/!*, hero*!/).pipe(
-      catchError(e => {
-        console.error(e);
-        return [];// le pasamos un array vacío para que no devuelva nada
-      })
-    ).pipe(map((result)=>result))
-  }*/
-
-
   public getHeroesSearch(text: string): Observable<CreateHero[]> {
     if (!text.trim()) {
       return of([]);
     }
-    
     return this.http.get<CreateHero>(this.url + 'search/' + text).pipe(
       catchError(e => {
         console.error(e);
         return [];// le pasamos un array vacío para que no devuelva nada
       })
     ).pipe(map((result: CreateHero[])=>result))
+  }
+
+  public getHeroCreatedById(id: number): Observable<CreateHero> {
+    return this.http.get<CreateHero>(this.url + id).pipe(
+      catchError(e => {
+        console.error(e);
+        return [];// le pasamos un array vacío para que no devuelva nada
+      })
+    ).pipe(map((result)=>result.data))
   }
 
 }

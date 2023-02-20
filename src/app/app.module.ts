@@ -14,6 +14,9 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
 
 import {CommonModule} from "@angular/common";
 import { TableComponent } from './table/table.component';
+import { HeroDetailCreatedComponent } from './hero-detail-created/hero-detail-created.component';
+
+
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { TableComponent } from './table/table.component';
     HeroSearchComponent,
     HeroFormComponent,
     TableComponent,
-    
+    HeroDetailCreatedComponent,
+
+
   ],
   imports: [
     BrowserModule,

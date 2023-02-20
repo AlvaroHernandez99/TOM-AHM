@@ -1,0 +1,23 @@
+
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl font-bold sm:text-4xl">
+        {{ heroeSeleccionadoCreate.name }}
+      </h2>
+    </div>
+    <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+      <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
+
+      </div>
+      <div class="lg:py-16">
+        <article class="space-y-4 text-gray-600">
+          <h4 class="italic bold text-black">Description: <br> {{heroeSeleccionadoCreate.description}}</h4>
+          <p> Id: {{ heroeSeleccionadoCreate.id }} </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<button (click)="goBack()">Go back</button>
+
