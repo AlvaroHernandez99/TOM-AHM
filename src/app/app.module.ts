@@ -13,6 +13,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
 
 
 import {CommonModule} from "@angular/common";
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {CommonModule} from "@angular/common";
     DashboardComponent,
     HeroSearchComponent,
     HeroFormComponent,
+    TableComponent,
     
   ],
   imports: [

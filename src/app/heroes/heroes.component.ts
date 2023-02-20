@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'rxjs';
-/*import { Hero } from '../hero';*/
 import { HeroService } from '../hero.service';
+import {Hero} from "../../interfaces/hero";
 import {Result} from "../../interfaces/result";
-import {Hero} from "../../interfaces/new-hero";
-import {HeroServices} from "../hero.services";
+
 
 
 @Component({
@@ -13,18 +11,9 @@ import {HeroServices} from "../hero.services";
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  //Por defecto una propiedad es pública. No hace flata ponerlo pero si lo pones es mejor para ifrntificarlo.
-  // No hace falta ponerle tipo si la INICIALIZAS
-/*   public heroeSeleccionado: Hero = null; */
-
-
-  heroes: Hero[] = [];
-
-
-  textoHeroe:string = 'Aqui se mostrará la lista de los heroes';
+  public heroes?: Result[];
 
   public limit:number = 20;
-  public offset:number = 0;
   public limitMore:number = 21;
   public offsetMore:number = 1;
 
@@ -32,9 +21,7 @@ export class HeroesComponent implements OnInit {
   constructor(
     //Indica a angular, que se reqyiere el uso de la instacia HeroService
     //Y, en el mismo paso, crea una propiedad privada de nombre heroService para conterner dicha instalacia
-    private heroService: HeroService,
-    private heroServices: HeroServices
-
+    private heroService: HeroService
   ) { }
 
   ngOnInit(): void {
@@ -89,27 +76,6 @@ export class HeroesComponent implements OnInit {
     //console.log(this.offsetMore);
     return (this.offsetMore = 1542) && (this.limitMore = 1562);
 
-  }
-
-
-  /*-.---------------------------------------------*/
-  getHeroes(): void {
-    this.heroServices.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroServices.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
-  }
-
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroServices.deleteHero(hero.id).subscribe();
   }
 
 }

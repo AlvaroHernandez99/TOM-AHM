@@ -3,7 +3,7 @@ import { Result } from '../interfaces/result';
 import {catchError, map, Observable, of, pipe, Subject} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {Character} from "../interfaces/character";
-import {Hero} from "../interfaces/new-hero";
+import {Hero} from "../interfaces/hero";
 
 @Injectable({
   providedIn: 'root'

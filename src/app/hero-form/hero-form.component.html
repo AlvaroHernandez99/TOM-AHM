@@ -1,6 +1,5 @@
 
-
-
+<!--
 <br>
 <h1>Create your own character</h1>
 <br>
@@ -8,16 +7,10 @@
   <label for="name">Name: </label>
   <input formControlName="name" type="text" id="name"><br>
   <div>
-    <!--Es una validación que se va a encargar que si el campo no es válido muestre este div-->
     <small *ngIf="heroForm.get('name').invalid && heroForm.get('name').touched">
-      <!-- Con el touched, si ha tocado el input saldrá el mensaje de error -->
       This field  is required
     </small>
   </div>
-
-
-  <label for="height">Height: </label>
-  <input formControlName="height" type="number" id="height"><br>
 
   <label for="description">Description: </label>
   <textarea formControlName="description" type="text" id="description"></textarea><br>
@@ -32,42 +25,106 @@
 
 
   <button (click)="save()">Save</button>
-  <!--<button (click)=" addNewHero(heroForm)">SAVE</button>-->
+  &lt;!&ndash;<button (click)=" addNewHero(heroForm)">SAVE</button>&ndash;&gt;
   <button (click)="load()">Show</button>
   <button (click)="reset()">Reset</button>
 
 </form>
 
 
-
 <div *ngIf="notVisible">
   <h1>Details of {{ this.heroForm.value.name }}</h1>
-  <p>Nombre: {{ this.heroForm.value.name }}</p>
-  <p>Superpower: {{ this.heroForm.value.description }}</p>
+  <p>Name: {{ this.heroForm.value.name }}</p>
+  <p>Description: {{ this.heroForm.value.description }}</p>
   <p>Has cape? {{ this.heroForm.value.hasCape }}</p>
-  <p>Height: {{ this.heroForm.value.height }}</p>
+</div>
+-->
+
+
+
+<div class="block text-center p-6 rounded-lg shadow-lg bg-white max-w-md">
+  <h1>Create your own superheroe</h1>
+  <form [formGroup]="heroForm">
+    <div class="form-group mb-6">
+      <input type="text" class="form-control block w-full px-3 py-1.5 text-basefont-normal text-gray-700 bg-white bg-clip-padding
+        border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600
+        focus:outline-none" formControlName="name" id="name" placeholder="Name">
+      <div>
+        <small *ngIf="heroForm.get('name').invalid && heroForm.get('name').touched">
+          This field  is required
+        </small>
+      </div>
+    </div>
+    <div class="form-group mb-6">
+      <textarea class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid
+      border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        id="description" formControlName="description" rows="3"  placeholder="Description"></textarea>
+      <div>
+        <small *ngIf="heroForm.get('description').invalid && heroForm.get('description').touched">
+          This field  is required
+        </small>
+      </div>
+    </div>
+    <div class="form-group form-check text-center mb-6">
+      <input type="checkbox" class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600
+        checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+        id="hasCape" formControlName="hasCape" checked>
+      <label class="form-check-label inline-block text-gray-800" for="hasCape">Has cape?</label>
+    </div>
+    <button type="submit" (click)="reset()"  class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight
+      uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none
+      focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      Reset
+    </button>
+    <button type="submit" (click)="load()"  class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight
+      uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none
+      focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      Show
+    </button>
+    <button type="submit" (click)="save()"  class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight
+      uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none
+      focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      Save
+    </button>
+  </form>
+</div>
+
+<div *ngIf="notVisible" class="overflow-x-auto rounded-lg border border-gray-200">
+  <h1 class="text-center bold italic">Details of {{ this.heroForm.value.name }}</h1>
+  <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
+    <thead>
+    <tr>
+      <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900" > Name </th>
+      <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900" > Description </th>
+      <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">Has cape? </th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+    <tr>
+      <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"> {{ this.heroForm.value.name }} </td>
+      <td class="whitespace-nowrap px-4 py-2 text-gray-700"> {{ this.heroForm.value.description }} </td>
+      <td class="whitespace-nowrap px-4 py-2 text-gray-700"> {{ this.heroForm.value.hasCape }} </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 
-<p>----------------------------------------------------------------------------------------------------------------</p>
-<!--------------------------------------------------------->
-<div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-    Add hero
-  </button>
-</div>
 
-<!--BORRAR PARTE DE LISTA-->
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button type="button" class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
-  </li>
-</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

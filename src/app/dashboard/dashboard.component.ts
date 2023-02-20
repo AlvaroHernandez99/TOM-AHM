@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
 import {Result} from "../../interfaces/result";
-import {Hero} from "../../interfaces/new-hero";
-import {HeroServices} from "../hero.services";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +11,11 @@ import {HeroServices} from "../hero.services";
 export class DashboardComponent implements OnInit {
 
   public heroes?: Result[];
-  heroe: Hero[] = [];
+ /* heroe: Hero[] = [];*/
 
   constructor(
     private heroService: HeroService,
-    private heroServices: HeroServices
+/*    private heroServices: HeroServices*/
   ) {  }
 
   ngOnInit(): void {
@@ -26,7 +25,8 @@ export class DashboardComponent implements OnInit {
   }
 
   /*-------------------------------------------*/
-  getHeroes(): void {
+/*  getHeroes(): void {*/
+/*
     this.heroServices.getHeroes()
       .subscribe(heroes => this.heroe = heroes);
   }
@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit {
     this.heroe = this.heroe.filter(h => h !== hero);
     this.heroServices.deleteHero(hero.id).subscribe();
   }
+*/
 
 
 }

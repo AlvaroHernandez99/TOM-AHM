@@ -6,7 +6,7 @@ import { Location } from "@angular/common";
 import { Result} from "../../interfaces/result";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MessageService} from "../message.service";
-import {Hero} from "../../interfaces/new-hero";
+import {Hero} from "../../interfaces/hero";
 
 
 @Component({
@@ -44,19 +44,16 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
     this.location.back();
   }
 
+
+
+
+
+
+
+
   ngOnDestroy(): void {
     //this.subscription.unsubscription;
   }
-   /*save() {
-    this.heroService.updateHero(this.heroeSeleccionado).subscribe();
-     this.location.back();
-   }*/
-
-  /*-----------------------------------------*/
-
-
-
-
 
 }
 

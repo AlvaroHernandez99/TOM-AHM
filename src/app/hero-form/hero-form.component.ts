@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Subject} from "rxjs";
-import {Hero} from "../../interfaces/new-hero";
-import {HeroServices} from "../hero.services";
+import {Hero} from "../../interfaces/hero";
+import {CreateHeroServiceService} from "../create-hero-service.service";
+import {CreateHero} from "../../interfaces/createHero";
 
 
 @Component({
@@ -21,37 +21,25 @@ export class HeroFormComponent implements OnInit{
       Validators.required
     ]),
     description: new FormControl("",[
-      Validators.maxLength(50),
+      Validators.maxLength(150),
       Validators.required
     ]),
-    hasCape: new FormControl(true),
-    height: new FormControl("not specified")
+    hasCape: new FormControl(false),
   });
-  public visible: boolean = true;
+
   public notVisible: boolean = false;
 
-  /*public heroCreate: NewHero[] = [];*/
-
-  /*heroCreate = HEROESCREATE;*/
-  heroes: Hero[] = [];
+/*  heroes: Hero[] = [];*/
   public constructor(
-    private heroServices: HeroServices
-  ) {
-  }
+    private createHeroServiceService: CreateHeroServiceService
+  ) { }
 
   ngOnInit(): void {
     this.heroForm.valueChanges.subscribe(values => {
-      console.log(values);
-
+      /*console.log(values);*/
     })
-  }
 
-  /*public addNewHero(form: FormGroup) {
-    /!*const control = new FormControl(null, [Validators.required]);*!/
-    console.log(form.value);
-    const todoA = this.heroCreate.push(form.value);
-    conole.log(todoA);
-  }*/
+  }
 
 
 
@@ -61,11 +49,16 @@ export class HeroFormComponent implements OnInit{
       alert('FORMULARIO INVALIDO');
       return;
     }
-    /* ADD NEW HERO */
-
     console.log(this.heroForm.value);
-
-
+    let body = {
+      name: this.heroForm.value.name,
+      description: this.heroForm.value.description,
+      hasCape: this.heroForm.value.hasCape
+    }
+    this.createHeroServiceService.createHero(body as CreateHero)
+      .subscribe(response => {
+        console.log(response)
+      })
     this.heroForm.reset();
     this.notVisible = false;
   }
@@ -84,25 +77,6 @@ export class HeroFormComponent implements OnInit{
   }
 
 
-  /*----------------------------------------------*/
-  getHeroes(): void {
-    this.heroServices.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroServices.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
-  }
-
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroServices.deleteHero(hero.id).subscribe();
-  }
 
 
 
