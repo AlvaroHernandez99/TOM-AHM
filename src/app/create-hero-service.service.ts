@@ -21,7 +21,7 @@ export class CreateHeroServiceService {
     private http: HttpClient
 
   ) { }
-  
+
   public getHeroes(): Observable<CreateHero[]> {
     return this.http.get<CreateHero>(this.url).pipe(
       catchError(e => {

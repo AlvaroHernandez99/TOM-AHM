@@ -1,49 +1,7 @@
 
-<!--
-<br>
-<h1>Create your own character</h1>
-<br>
-<form [formGroup]="heroForm">
-  <label for="name">Name: </label>
-  <input formControlName="name" type="text" id="name"><br>
-  <div>
-    <small *ngIf="heroForm.get('name').invalid && heroForm.get('name').touched">
-      This field  is required
-    </small>
-  </div>
-
-  <label for="description">Description: </label>
-  <textarea formControlName="description" type="text" id="description"></textarea><br>
-  <div>
-    <small *ngIf="heroForm.get('description').invalid && heroForm.get('description').touched">
-      This field  is required
-    </small>
-  </div>
-
-  <label for="hasCape">Has cape: </label>
-  <input formControlName="hasCape" type="checkbox" id="hasCape"><br>
-
-
-  <button (click)="save()">Save</button>
-  &lt;!&ndash;<button (click)=" addNewHero(heroForm)">SAVE</button>&ndash;&gt;
-  <button (click)="load()">Show</button>
-  <button (click)="reset()">Reset</button>
-
-</form>
-
-
-<div *ngIf="notVisible">
-  <h1>Details of {{ this.heroForm.value.name }}</h1>
-  <p>Name: {{ this.heroForm.value.name }}</p>
-  <p>Description: {{ this.heroForm.value.description }}</p>
-  <p>Has cape? {{ this.heroForm.value.hasCape }}</p>
-</div>
--->
-
-
-<div class="flex  mt-10 justify-center items-center">
+<div class="flex mt-10 justify-center items-center">
   <div class="block w-[800px] text-center p-6 rounded-lg shadow-lg bg-white max-w-md">
-    <h1>Create your own superheroe</h1>
+    <h1 class="titulo mb-6">Create your own superheroe</h1>
     <form [formGroup]="heroForm">
       <div class="form-group mb-6">
         <input type="text" class="form-control block w-full px-3 py-1.5 text-basefont-normal text-gray-700 bg-white bg-clip-padding
@@ -92,7 +50,7 @@
 
 <div *ngIf="notVisible" class="flex  mt-10 justify-center items-center">
   <div class="overflow-x-auto mt-10 w-[800px] rounded-lg border border-gray-200">
-    <h1 class="text-center bold italic">Details of {{ this.heroForm.value.name }}</h1>
+    <h1 class="text-center bold italic mt-5 mb-5">Details of {{ this.heroForm.value.name }}</h1>
     <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
       <thead>
       <tr>

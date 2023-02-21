@@ -119,7 +119,7 @@ export class HeroService {
       )
       .pipe(map((result: Character)=>result.data.results))
   }
-  
+
 }
 
 

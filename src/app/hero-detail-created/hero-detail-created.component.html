@@ -8,16 +8,30 @@
     </div>
     <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
       <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-
+        <img class="w-[450px] h-[500px]" src="https://api.lorem.space/image/face?w=150&amp;amp;amp;amp;h=220">
       </div>
       <div class="lg:py-16">
         <article class="space-y-4 text-gray-600">
           <h4 class="italic bold text-black">Description: <br> {{heroeSeleccionadoCreate.description}}</h4>
           <p> Id: {{ heroeSeleccionadoCreate.id }} </p>
+          <p>
+            Data: More data: De ese modo, todo texto contiene una serie de mensajes cifrados que el lector debe poder recuperar,
+            instrucciones de uso de una lavadora, pero también un poema de amor, las noticias del diario o un grafiti de
+            protesta en una pared en la calle.
+          </p>
+          <p>
+            More data: De ese modo, todo texto contiene una serie de mensajes cifrados que el lector debe poder recuperar,
+            instrucciones de uso de una lavadora, pero también un poema de amor, las noticias del diario o un grafiti de
+            protesta en una pared en la calle.
+          </p>
         </article>
       </div>
     </div>
   </div>
 </section>
-<button (click)="goBack()">Go back</button>
+<div class="flex justify-center items-center">
+  <button class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-white hover:bg-black" (click)="goBack()">Go back</button>
+</div>
+
+
 

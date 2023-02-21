@@ -1,10 +1,9 @@
 
 
 
-<div class="overflow-x-auto rounded-lg border border-gray-200">
-
-  <h1 class="text-center bold italic">Table of heroes created</h1>
-  <table  id="table" name="table" class="min-w-full divide-y-2 divide-gray-200 text-sm">
+<!--<div class="overflow-x-auto rounded-lg border border-gray-200">
+  <h1 class="text-center bold italic mt-5">Table of heroes created</h1>
+  <table  id="table" class="min-w-full  mt-10 divide-y-2 divide-gray-200 text-sm">
     <thead>
       <tr>
         <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900" > Name </th>
@@ -23,7 +22,7 @@
           <button><a routerLink="/detail/created/{{ hero.id }}">SHOW</a></button>
         </td>
         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-          <!--<button>EDIT</button>-->
+          &lt;!&ndash;<button>EDIT</button>&ndash;&gt;
           <a >EDIT</a>
         </td>
         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
@@ -32,4 +31,38 @@
       </tr>
     </tbody>
   </table>
+</div>-->
+
+<div class="flex mt-10 justify-center items-center">
+  <div class="overflow-x-auto mt-10 w-[800px] rounded-lg border border-gray-200">
+    <h1 class="titulo text-center bold mt-8 mb-10">Details of Heroes Created</h1>
+    <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
+      <thead>
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900" > Name </th>
+        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900" > Description </th>
+        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">Has cape? </th>
+        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"></th>
+        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"></th>
+      </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+      <tr  *ngFor="let hero of createdHeroes">
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"> {{ hero.name }} </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"> {{ hero.description }} </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"> {{ hero.hasCape }} </td>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          <button class="hover:text-emerald-600"><a routerLink="/detail/created/{{ hero.id }}">SHOW</a></button>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          <!--<button>EDIT</button>-->
+          <a >EDIT</a>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          <button class="hover:text-red-600" (click)="delete(hero.id)">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
