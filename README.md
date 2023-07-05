@@ -1,7 +1,8 @@
 # Tour of heroes 22-23
 
-<p align="center">
+<div align="center">
   <img width="500px" src="./src/assets/img/images.jpg">
+</div>
 
 >Proyecto
 >> Tecnologías
@@ -12,6 +13,9 @@
 >
 >> Adicional
 >>> Habían ciertas cosas que eran obligatorias pero también se nos dejaba añadir funcionalidades extra. En mi caso, he creado un pequeño CRUD añadiendo una nueva tabla en una DB para que puedas crearte tu propio héroe. También he aprovechado el buscador donde se muestra la lista de héroes para que al hacer la búsqueda, aparezcan en la misma lista tantos los hérores de Marvel como lo hérores creados de mi DB.
+>
+>> Diseño
+>>> Como se puede ver, el diseño de esta página web es bastante minimalista y simple. Decidí no dedicarle más tiempo debido a que tenía varias funcionalidades extra que quería añadir y tenía que elegir entre una cosa u otra.
 
 >BackEnd
 >>Todo la parte del BackEnd está subida en el repositio GestionApp. Es uno de los repositios donde hacía algunas pruebas o trabajos, por lo que hay muchas más tablas en la DB.
@@ -29,3 +33,12 @@
 >
 >>Be a Superhero
 >>> Es un pequeño formulario para crearte tu propio superheroe y poder aparecer en la lista junto a otros como Spiderman, Hulk... Tiene 3 campos: nombre, apellidos y si tiene capa o no. También tiene 3 botones: uno para ver los datos antes de añadirlos a la lista, otro para resetear el formulario y el de guardar datos.
+
+<div align="center">
+  <img src="./src/assets/img/heroes.png">
+  <img src="./src/assets/img/heroes2.png">
+  <img src="./src/assets/img/heroes3.png">
+  <img src="./src/assets/img/dashboard.png">
+  <img src="./src/assets/img/show.png">
+  <img src="./src/assets/img/be.png">
+</div>
