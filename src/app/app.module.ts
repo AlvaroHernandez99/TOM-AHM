@@ -29,16 +29,13 @@ import { HeroDetailCreatedComponent } from './hero-detail-created/hero-detail-cr
     HeroFormComponent,
     TableComponent,
     HeroDetailCreatedComponent,
-
-
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
-
+    HttpClientModule
   ],
   exports: [],
   providers: [CommonModule],
